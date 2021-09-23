@@ -9,6 +9,7 @@ const FORCES = {
   CHARGE: -1
 }
 
+// нужно ли этой штуке быть сервисом ангуляра?
 export class ForceDirectedGraph {
   public ticker: EventEmitter<d3.Simulation<Node, Link>> = new EventEmitter();
   public simulation: d3.Simulation<any, any>;
@@ -21,21 +22,6 @@ export class ForceDirectedGraph {
     this.links = links;
 
     this.initSimulation(options);
-  }
-
-  connectNodes(source, target) {
-    let link;
-
-    if (!this.nodes[source] || !this.nodes[target]) {
-      throw new Error('One of the nodes does not exist');
-    }
-
-    link = new Link(source, target);
-    this.simulation.stop();
-    this.links.push(link);
-    this.simulation.alphaTarget(0.3).restart();
-
-    this.initLinks();
   }
 
   initNodes() {
