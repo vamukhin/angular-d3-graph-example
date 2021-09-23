@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {SceneElementsService} from './services/scene-elements.service';
-import {NewNode} from './models/NewNode';
+import {Node} from './models/Node';
 
 import {Link} from './models/NewLink';
 
@@ -11,7 +11,7 @@ import {Link} from './models/NewLink';
 })
 
 export class AppComponent {
-  nodes: NewNode[] = [];
+  nodes: Node[] = [];
   links: Link[] = [];
   constructor(private sceneElements: SceneElementsService) {
       this.nodes = sceneElements.nodes;
@@ -19,6 +19,6 @@ export class AppComponent {
 
   addNode() {
     console.log('123');
-    this.sceneElements.nodes.push(new NewNode())
+    this.sceneElements.addNode(new Node(200,200 ))
   }
 }

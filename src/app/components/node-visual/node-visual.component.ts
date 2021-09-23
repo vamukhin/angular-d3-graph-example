@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {NewNode as Node} from '../../models/NewNode'
+import {Node as Node} from '../../models/Node'
 @Component({
   selector: '[nodeVisual]',
   template: `
@@ -14,7 +14,7 @@ import {NewNode as Node} from '../../models/NewNode'
       <svg:text
           class="node-name"
           attr.font-size="14">
-        {{node.id}}
+        {{node.index}}
       </svg:text>
     </svg:g>
   `,

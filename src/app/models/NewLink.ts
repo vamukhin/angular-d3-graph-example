@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import {NewNode} from './NewNode';
+import {Node} from './Node';
 
-export class Link implements d3.SimulationLinkDatum<NewNode> {
+export class Link implements d3.SimulationLinkDatum<Node> {
   id: string
   linkTypeId: string
 

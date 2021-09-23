@@ -5,18 +5,21 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { GraphComponent } from './components/graph/graph.component';
-import { SHARED_VISUALS } from './visuals/shared';
+import { SceneComponent } from './components/scene/scene.component';
+
 import {DraggableDirective} from './directives/draggable.directive';
 import {ZoomableDirective} from './directives/zoomable.directive';
+import {NodeVisualComponent} from './components/node-visual/node-visual.component';
+import {LinkVisualComponent} from './components/link-visual/link-visual.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraphComponent,
+    SceneComponent,
     DraggableDirective,
     ZoomableDirective,
-    ...SHARED_VISUALS,
+    NodeVisualComponent,
+    LinkVisualComponent
   ],
   imports: [
     BrowserModule,

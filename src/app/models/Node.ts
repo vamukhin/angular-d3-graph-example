@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export class NewNode implements d3.SimulationNodeDatum {
+export class Node implements d3.SimulationNodeDatum {
   // optional - defining optional implementation properties - required for relevant typing assistance
   index?: number;
   x?: number;
@@ -13,7 +13,9 @@ export class NewNode implements d3.SimulationNodeDatum {
   id: string
 
   r = 20
-  constructor() {
+  constructor(x?: number, y?: number) {
+    this.x = x;
+    this.y = y;
     this.id = uuidv4();
   }
 }
