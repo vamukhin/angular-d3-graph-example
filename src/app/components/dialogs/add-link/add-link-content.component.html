@@ -1,0 +1,15 @@
+<form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+  <div class="form-group">
+    <label>Первая нода</label>
+    <select class="form-control" name="firstNode" [(ngModel)]="firstNode" required>
+      <option *ngFor="let firstOption of firstNodeOptions()" [ngValue]="firstOption.id">{{firstOption.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Вторая нода</label>
+    <select class="form-control" name="secondNode" [(ngModel)]="secondNode" required>
+      <option *ngFor="let secondOption of secondNodeOptions()" [ngValue]="secondOption.id">{{secondOption.name}}</option>
+    </select>
+  </div>
+  <button  [disabled]="myForm.invalid" type="submit">Добавить</button>
+</form>

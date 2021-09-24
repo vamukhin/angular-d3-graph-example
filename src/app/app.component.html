@@ -1,2 +1,8 @@
-<button (click)="addNode()">Добавить ноду</button>
+<button (click)="addNodeDialog.openDialog('addNode')">Добавить ноду</button>
+<button
+  [disabled]="this.sceneElements.nodes.length <= 1"
+  (click)="addNodeDialog.openDialog('addLink')">
+    Добавить линк
+</button>
 <app-scene></app-scene>
+<app-add-node-wrapper #addNodeDialog></app-add-node-wrapper>

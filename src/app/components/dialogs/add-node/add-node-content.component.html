@@ -1,0 +1,7 @@
+<form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+  <div class="form-group">
+    <label>Название</label>
+    <input class="form-control" name="name" [(ngModel)]="name" required />
+  </div>
+  <button  [disabled]="myForm.invalid" type="submit">Добавить</button>
+</form>

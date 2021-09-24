@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef, OnInit } from '@angular/core';
+import {Directive, Input, ElementRef, OnInit} from '@angular/core';
 import * as d3 from 'd3';
 import {Node} from '../models/Node';
 
@@ -8,7 +8,7 @@ import {Node} from '../models/Node';
 export class DraggableDirective implements OnInit {
     @Input('draggableNode') draggableNode: Node;
 
-    constructor(private _element: ElementRef) { }
+  constructor(private _element: ElementRef) { }
 
     ngOnInit() {
       const d3element = d3.select(this._element.nativeElement);

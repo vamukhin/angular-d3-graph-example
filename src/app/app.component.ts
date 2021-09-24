@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnChanges, SimpleChanges} from '@angular/core';
 import {SceneElementsService} from './services/scene-elements.service';
 import {Node} from './models/Node';
 
-import {Link} from './models/NewLink';
+import {Link} from './models/Link';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,7 @@ import {Link} from './models/NewLink';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  nodes: Node[] = [];
-  links: Link[] = [];
-  constructor(private sceneElements: SceneElementsService) {
-      this.nodes = sceneElements.nodes;
-  }
+export class AppComponent  {
+  constructor(public sceneElements: SceneElementsService) {}
 
-  addNode() {
-    console.log('123');
-    this.sceneElements.addNode(new Node(200,200 ))
-  }
 }

@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef, OnInit } from '@angular/core';
+import {Directive, Input, ElementRef, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 
 @Directive({
@@ -8,6 +8,7 @@ export class ZoomableDirective implements OnInit {
     @Input('zoomableOf') zoomableOf: Element;
 
     constructor(private _element: ElementRef) {}
+
 
     ngOnInit() {
       let svg, container, zoomed, zoom;

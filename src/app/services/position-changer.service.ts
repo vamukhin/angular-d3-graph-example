@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as d3 from 'd3';
+import {Link} from '../models/Link';
+import {Node} from '../models/Node';
 
 const FORCES = {
   LINKS: 1 / 50,
@@ -16,9 +18,18 @@ export class PositionChangerService {
   // public ticker: EventEmitter<d3.Simulation<Node, Link>> = new EventEmitter();
   private simulation: d3.Simulation<any, any>;
 
-  changeNodesAmount(nodes) {
+  changeNodesAmount(nodes: Node[]) {
     this.simulation.nodes(nodes);
     return this.simulation.nodes()
+  }
+
+  changeLinksAmount(links: (Link<Node> | Link<string>)[]): Link<Node>[] {
+    const linkForce = d3.forceLink(links)
+      .id(d => d['id'])
+      .strength(FORCES.LINKS);
+
+    this.simulation.force('links', linkForce);
+    return linkForce.links() as Link<Node>[] // метод фактически возвращает только Link<Node>, хотя ро типам Link<Node> | Link<number> | Link<string>
   }
 
   initSimulation(nodes, links) {
