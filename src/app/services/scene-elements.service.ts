@@ -5,6 +5,7 @@ import {Node} from '../models/Node';
 import {NodeType} from '../models/NodeType';
 import {PositionChangerService} from './position-changer.service';
 
+// Основной источник данных. Все изменения элементов через него
 @Injectable({
   providedIn: 'root'
 })
